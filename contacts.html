@@ -3,87 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Контакты — Гардероб</title>
-  <meta name="description" content="Контактная информация и форма обратной связи интернет-магазина «Гардероб».">
+  <title>Контакты — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">Гардероб</a>
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html">Главная</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="catalog.html">Каталог</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="order.html">Заявка</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link site-nav__link--active" href="contacts.html">Контакты</a>
-          </li>
+          <li><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li><a class="site-nav__link" href="order.html">Заявка</a></li>
+          <li><a class="site-nav__link site-nav__link--active" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="page-main">
-    <div class="section__inner">
+  <main>
+    <div class="page-main">
       <ul class="breadcrumbs" aria-label="Хлебные крошки">
-        <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
-        <li class="breadcrumbs__item breadcrumbs__item--current">Контакты</li>
+        <li><a href="index.html">Главная</a></li>
+        <li class="breadcrumbs__item--current">Контакты</li>
       </ul>
 
       <h1 class="page-title">Контакты</h1>
 
       <div class="contacts-layout">
-        <!-- Контактная информация -->
-        <section class="contacts" aria-label="Контактная информация">
+        <section aria-label="Контактная информация">
           <h2>Как с нами связаться</h2>
+
           <ul class="contacts__list">
             <li class="contacts__item">
               <h3>Телефон</h3>
               <p><a href="tel:+79000000000">+7 (900) 000-00-00</a></p>
-              <p>Ежедневно с 10:00 до 20:00</p>
+              <p>Пн–Пт, с 10:00 до 18:00</p>
             </li>
             <li class="contacts__item">
               <h3>E-mail</h3>
-              <p><a href="mailto:hello@garderob.example">hello@garderob.example</a></p>
-              <p>Ответим в течение суток</p>
+              <p><a href="mailto:shop@example.ru">shop@example.ru</a></p>
             </li>
             <li class="contacts__item">
-              <h3>Пункт выдачи</h3>
-              <p>Москва, ул. Примерная, д. 1</p>
-              <p>Примерка товара перед покупкой</p>
+              <h3>Адрес</h3>
+              <p>г. Москва, ул. Примерная, д. 1</p>
             </li>
           </ul>
 
-          <!-- Часто задаваемые вопросы (самостоятельная доработка) -->
           <section class="faq" aria-label="Часто задаваемые вопросы">
             <h2>Частые вопросы</h2>
+
             <details class="faq__item">
-              <summary>Как примерить товар перед покупкой?</summary>
-              <p>Оставьте заявку — менеджер забронирует вещь в пункте выдачи. Примерка бесплатная.</p>
+              <summary>Как оформить заказ?</summary>
+              <p>Заполните форму заявки на странице «Заявка».</p>
             </details>
             <details class="faq__item">
               <summary>Сколько идёт доставка?</summary>
-              <p>По Москве — 1–2 дня, в регионы — от 3 до 7 дней.</p>
+              <p>От 2 до 5 рабочих дней.</p>
             </details>
             <details class="faq__item">
-              <summary>Как вернуть товар?</summary>
-              <p>В течение 30 дней, если сохранены бирки. Оформите возврат через форму ниже.</p>
+              <summary>Можно ли вернуть товар?</summary>
+              <p>Да, в течение 14 дней с момента покупки.</p>
             </details>
           </section>
         </section>
 
-        <!-- Форма обратной связи -->
         <section class="section" aria-label="Форма обратной связи">
           <h2>Обратная связь</h2>
-          <form class="order-form order-form--page" id="feedback-form" action="#" method="post" novalidate>
+
+          <form class="order-form" id="feedback-form" action="#" method="post" novalidate>
             <div class="order-form__field">
               <label class="order-form__label" for="feedback-name">Имя</label>
               <input class="order-form__input" id="feedback-name" name="name" type="text"
@@ -102,7 +92,6 @@
                 <option value="">Выберите тему</option>
                 <option value="order">Вопрос по заказу</option>
                 <option value="return">Возврат товара</option>
-                <option value="sizing">Подбор размера</option>
                 <option value="other">Другое</option>
               </select>
             </div>
@@ -116,7 +105,7 @@
             <div class="order-form__field order-form__field--checkbox">
               <label class="order-form__label">
                 <input id="feedback-agreement" name="agreement" type="checkbox" required>
-                Я согласен на обработку персональных данных
+                Я согласен на обработку данных
               </label>
             </div>
 
@@ -126,21 +115,20 @@
           </form>
 
           <p class="success-message" id="feedback-success" hidden>
-            Сообщение отправлено! Ответим на указанный e-mail.
+            Сообщение отправлено!
           </p>
 
           <p class="contacts__note">
-            Хотите оформить заказ? Заполните
-            <a href="order.html">форму заявки</a>.
+            Хотите оформить заказ? Заполните <a href="order.html">форму заявки</a>.
           </p>
         </section>
       </div>
     </div>
   </main>
 
-  <footer class="site-footer" id="contacts">
+  <footer class="site-footer">
     <div class="site-footer__inner">
-      <p class="site-footer__copyright">&copy; 2026 «Гардероб». Учебный проект.</p>
+      <p class="site-footer__copyright">&copy; 2026 Учебный проект. Все права защищены.</p>
       <ul class="site-footer__links">
         <li><a href="index.html#advantages">Преимущества</a></li>
         <li><a href="index.html#popular">Популярные товары</a></li>
@@ -150,6 +138,6 @@
     </div>
   </footer>
 
-  <button class="to-top" type="button" aria-label="Наверх">Наверх ↑</button>
+  <button class="to-top" type="button" aria-label="Наверх">Наверх</button>
 </body>
 </html>

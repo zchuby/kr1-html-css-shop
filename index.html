@@ -3,122 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Гардероб — интернет-магазин одежды</title>
-  <meta name="description" content="Учебный проект: многостраничный сайт интернет-магазина одежды. Контрольная работа №1, дисциплина «Фронтенд и бэкенд разработка».">
+  <title>Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">Гардероб</a>
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li class="site-nav__item">
-            <a class="site-nav__link site-nav__link--active" href="index.html">Главная</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="catalog.html">Каталог</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="order.html">Заявка</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="contacts.html">Контакты</a>
-          </li>
+          <li><a class="site-nav__link site-nav__link--active" href="index.html">Главная</a></li>
+          <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li><a class="site-nav__link" href="order.html">Заявка</a></li>
+          <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="page-main">
-    <!-- Первый экран сайта -->
+  <main>
     <section class="hero">
-      <div class="hero__inner">
-        <h1 class="hero__title">Одежда, в которой удобно жить</h1>
-        <p class="hero__text">
-          «Гардероб» — интернет-магазин базовой и авторской одежды.
-          Натуральные ткани, спокойные цвета и честные цены.
-        </p>
-        <div class="hero__actions">
-          <a class="button" href="catalog.html">Перейти в каталог</a>
-          <a class="button button--ghost" href="order.html">Оставить заявку</a>
-        </div>
+      <h1 class="hero__title">Учебный интернет-магазин</h1>
+      <p class="hero__text">
+        Это стартовая страница учебного frontend-проекта.
+        В дальнейшем на её основе будет разработан многостраничный сайт
+        интернет-магазина или каталога услуг.
+      </p>
+      <div class="hero__actions">
+        <a class="button" href="catalog.html">Перейти к товарам</a>
+        <a class="button" href="order.html">Оставить заявку</a>
       </div>
     </section>
 
-    <!-- Преимущества магазина -->
-    <section class="section" id="advantages">
-      <div class="section__inner">
-        <h2 class="section__title">Почему выбирают нас</h2>
+    <div class="page-main">
+      <section class="section" id="advantages">
+        <h2>Преимущества проекта</h2>
+
         <ul class="advantages">
-          <li class="advantages__item">
-            <h3>Натуральные ткани</h3>
-            <p>Лён, хлопок и шерсть. Состав каждого товара указан в таблице характеристик.</p>
-          </li>
-          <li class="advantages__item">
-            <h3>Честные цены</h3>
-            <p>Работаем напрямую с производством, поэтому не делаем лишних наценок.</p>
-          </li>
-          <li class="advantages__item">
-            <h3>Примерка перед покупкой</h3>
-            <p>Заказ можно примерить в пункте выдачи и отказаться от неподошедших вещей.</p>
-          </li>
-          <li class="advantages__item">
-            <h3>Возврат 30 дней</h3>
-            <p>Если вещь не подошла, примем её обратно в течение месяца после покупки.</p>
-          </li>
+          <li>понятная HTML-структура;</li>
+          <li>семантические блоки страницы;</li>
+          <li>подключение внешнего CSS-файла;</li>
+          <li>подготовка к разработке многостраничного сайта.</li>
         </ul>
-      </div>
-    </section>
+      </section>
 
-    <!-- Популярные товары -->
-    <section class="section" id="popular">
-      <div class="section__inner">
-        <h2 class="section__title">Популярные товары</h2>
+      <section class="section" id="popular">
+        <h2>Популярные товары</h2>
+
         <div class="product-grid">
-          <article class="product-card product-card--hit">
+          <article class="product-card">
             <span class="product-card__badge">Хит</span>
-            <img class="product-card__image" src="images/product-dress.svg" alt="Платье миди льняное" width="260" height="200">
-            <h3 class="product-card__title">Платье миди льняное</h3>
-            <p class="product-card__description">Лёгкое платье свободного силуэта из натурального льна.</p>
-            <p class="product-card__price">3 490 руб.</p>
+            <img class="product-card__image" src="images/product-1.svg" alt="Изображение товара 1" width="400" height="300">
+            <h3>Товар 1</h3>
+            <p class="product-card__description">Краткое описание учебного товара.</p>
+            <p class="product-card__price">Цена: 1000 руб.</p>
             <a class="product-card__link" href="product.html">Подробнее</a>
           </article>
+
+          <article class="product-card">
+            <img class="product-card__image" src="images/product-2.svg" alt="Изображение товара 2" width="400" height="300">
+            <h3>Товар 2</h3>
+            <p class="product-card__description">Краткое описание учебного товара.</p>
+            <p class="product-card__price">Цена: 1500 руб.</p>
+            <a class="product-card__link" href="product.html">Подробнее</a>
+          </article>
+
           <article class="product-card product-card--new">
             <span class="product-card__badge">Новинка</span>
-            <img class="product-card__image" src="images/product-trench.svg" alt="Тренч классический" width="260" height="200">
-            <h3 class="product-card__title">Тренч классический</h3>
-            <p class="product-card__description">Пальто-тренч приглушённого песочного оттенка.</p>
-            <p class="product-card__price">7 990 руб.</p>
-            <a class="product-card__link" href="product.html">Подробнее</a>
-          </article>
-          <article class="product-card">
-            <img class="product-card__image" src="images/product-sweater.svg" alt="Свитер объёмный" width="260" height="200">
-            <h3 class="product-card__title">Свитер объёмный</h3>
-            <p class="product-card__description">Тёплый свитер крупной вязки с высоким воротом.</p>
-            <p class="product-card__price">2 990 руб.</p>
+            <img class="product-card__image" src="images/product-5.svg" alt="Изображение товара 5" width="400" height="300">
+            <h3>Товар 5</h3>
+            <p class="product-card__description">Краткое описание учебного товара.</p>
+            <p class="product-card__price">Цена: 2500 руб.</p>
             <a class="product-card__link" href="product.html">Подробнее</a>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Дополнительный блок -->
-    <aside class="aside-info">
-      <div class="section__inner">
-        <h2>Как оформить заявку</h2>
+      <aside class="aside-info">
+        <h2>Информация для студентов</h2>
         <p>
-          Выберите товар в каталоге и оставьте заявку на странице заказа —
-          менеджер перезвонит, уточнит размер и детали доставки.
+          На следующих практических занятиях этот проект будет расширяться:
+          появятся формы, модальное окно, дополнительные страницы, Flex/Grid,
+          БЭМ-структура и адаптивная версия сайта.
         </p>
-      </div>
-    </aside>
+      </aside>
+    </div>
   </main>
 
   <footer class="site-footer" id="contacts">
     <div class="site-footer__inner">
-      <p class="site-footer__copyright">&copy; 2026 «Гардероб». Учебный проект.</p>
+      <p class="site-footer__copyright">&copy; 2026 Учебный проект. Все права защищены.</p>
       <ul class="site-footer__links">
         <li><a href="index.html#advantages">Преимущества</a></li>
         <li><a href="index.html#popular">Популярные товары</a></li>
@@ -128,7 +104,6 @@
     </div>
   </footer>
 
-  <!-- Фиксированная кнопка возврата наверх -->
-  <button class="to-top" type="button" aria-label="Наверх">Наверх ↑</button>
+  <button class="to-top" type="button" aria-label="Наверх">Наверх</button>
 </body>
 </html>
