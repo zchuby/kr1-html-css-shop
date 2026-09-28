@@ -3,48 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Оформление заявки — Гардероб</title>
-  <meta name="description" content="Форма заявки на товар интернет-магазина «Гардероб».">
+  <title>Оформление заявки — Учебный интернет-магазин</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">Гардероб</a>
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="index.html">Главная</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="catalog.html">Каталог</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link site-nav__link--active" href="order.html">Заявка</a>
-          </li>
-          <li class="site-nav__item">
-            <a class="site-nav__link" href="contacts.html">Контакты</a>
-          </li>
+          <li><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
+          <li><a class="site-nav__link site-nav__link--active" href="order.html">Заявка</a></li>
+          <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <main class="page-main">
-    <div class="section__inner">
+  <main>
+    <div class="page-main">
       <ul class="breadcrumbs" aria-label="Хлебные крошки">
-        <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
-        <li class="breadcrumbs__item breadcrumbs__item--current">Заявка</li>
+        <li><a href="index.html">Главная</a></li>
+        <li class="breadcrumbs__item--current">Заявка</li>
       </ul>
 
       <h1 class="page-title">Оформление заявки</h1>
       <p class="page-lead">
-        Заполните форму — менеджер перезвонит в течение рабочего дня,
-        уточнит размер, цвет и способ доставки.
+        Заполните форму — менеджер свяжется с вами и уточнит детали заказа.
       </p>
 
-      <form class="order-form order-form--page" id="order-form" action="#" method="post" novalidate>
+      <form class="order-form" id="order-form" action="#" method="post" novalidate>
         <div class="order-form__field">
           <label class="order-form__label" for="order-name">Имя</label>
           <input class="order-form__input" id="order-name" name="name" type="text"
@@ -73,46 +64,46 @@
           <label class="order-form__label" for="order-product">Товар</label>
           <select class="order-form__input" id="order-product" name="product" required>
             <option value="">Выберите товар</option>
-            <option value="dress">Платье миди льняное — 3 490 руб.</option>
-            <option value="sweater">Свитер объёмный — 2 990 руб.</option>
-            <option value="shirt">Рубашка оверсайз — 2 490 руб.</option>
-            <option value="jeans">Джинсы прямые — 3 990 руб.</option>
-            <option value="trench">Тренч классический — 7 990 руб.</option>
-            <option value="coat">Пальто драповое — 6 990 руб.</option>
-            <option value="bag">Сумка кожаная — 4 790 руб.</option>
-            <option value="scarf">Шарф шерстяной — 1 590 руб.</option>
             <option value="consultation">Нужна консультация</option>
+            <option value="product1">Товар 1</option>
+            <option value="product2">Товар 2</option>
+            <option value="product3">Товар 3</option>
+            <option value="product4">Товар 4</option>
+            <option value="product5">Товар 5</option>
+            <option value="product6">Товар 6</option>
+            <option value="product7">Товар 7</option>
+            <option value="product8">Товар 8</option>
           </select>
         </div>
 
         <div class="order-form__field">
           <label class="order-form__label" for="order-comment">Комментарий</label>
           <textarea class="order-form__input" id="order-comment" name="comment" rows="4"
-                    placeholder="Укажите размер, цвет или дополнительную информацию"></textarea>
+                    placeholder="Укажите дополнительную информацию"></textarea>
         </div>
 
         <div class="order-form__field order-form__field--checkbox">
           <label class="order-form__label">
             <input id="order-agreement" name="agreement" type="checkbox" required>
-            Я согласен на обработку персональных данных
+            Я согласен на обработку данных
           </label>
         </div>
 
         <div class="order-form__actions">
           <button type="submit">Отправить заявку</button>
-          <button class="button--ghost" type="reset">Очистить</button>
+          <button type="reset">Очистить</button>
         </div>
       </form>
 
       <p class="success-message" id="success-message" hidden>
-        Форма успешно отправлена! Мы свяжемся с вами в ближайшее время.
+        Форма успешно отправлена!
       </p>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="site-footer__inner">
-      <p class="site-footer__copyright">&copy; 2026 «Гардероб». Учебный проект.</p>
+      <p class="site-footer__copyright">&copy; 2026 Учебный проект. Все права защищены.</p>
       <ul class="site-footer__links">
         <li><a href="index.html#advantages">Преимущества</a></li>
         <li><a href="index.html#popular">Популярные товары</a></li>
@@ -122,6 +113,6 @@
     </div>
   </footer>
 
-  <button class="to-top" type="button" aria-label="Наверх">Наверх ↑</button>
+  <button class="to-top" type="button" aria-label="Наверх">Наверх</button>
 </body>
 </html>
