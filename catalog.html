@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — Гардероб</title>
+  <meta name="description" content="Каталог интернет-магазина одежды «Гардероб»: платья, свитеры, верхняя одежда и аксессуары.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">Гардероб</a>
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="order.html">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="section__inner">
+      <ul class="breadcrumbs" aria-label="Хлебные крошки">
+        <li class="breadcrumbs__item"><a href="index.html">Главная</a></li>
+        <li class="breadcrumbs__item breadcrumbs__item--current">Каталог</li>
+      </ul>
+
+      <h1 class="page-title">Каталог товаров</h1>
+
+      <!-- Сетка каталога: sticky-фильтр слева, карточки справа -->
+      <div class="catalog-layout">
+        <aside class="catalog-filters" aria-label="Фильтры каталога">
+          <h2>Фильтры</h2>
+          <form class="filters" action="#" method="get">
+            <fieldset class="filters__group">
+              <legend>Категория</legend>
+              <label class="filters__option">
+                <input type="checkbox" name="category" value="women" checked>
+                Женская одежда
+              </label>
+              <label class="filters__option">
+                <input type="checkbox" name="category" value="men">
+                Мужская одежда
+              </label>
+              <label class="filters__option">
+                <input type="checkbox" name="category" value="accessories">
+                Аксессуары
+              </label>
+            </fieldset>
+            <fieldset class="filters__group">
+              <legend>Цена</legend>
+              <label class="filters__option" for="filter-price-from">От, руб.</label>
+              <input class="filters__input" id="filter-price-from" name="price-from" type="number" min="0" step="100" placeholder="0">
+              <label class="filters__option" for="filter-price-to">До, руб.</label>
+              <input class="filters__input" id="filter-price-to" name="price-to" type="number" min="0" step="100" placeholder="10000">
+            </fieldset>
+            <p class="filters__note">Фильтры учебные и пока не изменяют список.</p>
+            <button class="button button--ghost" type="submit">Применить</button>
+          </form>
+        </aside>
+
+        <section class="catalog" aria-label="Список товаров">
+          <h2 class="visually-hidden">Товары</h2>
+          <div class="product-grid">
+            <article class="product-card product-card--hit">
+              <span class="product-card__badge">Хит</span>
+              <img class="product-card__image" src="images/product-dress.svg" alt="Платье миди льняное" width="260" height="200">
+              <h3 class="product-card__title">Платье миди льняное</h3>
+              <p class="product-card__description">Лёгкое платье свободного силуэта из натурального льна.</p>
+              <p class="product-card__price">3 490 руб.</p>
+              <a class="product-card__link" href="product.html">Подробнее</a>
+            </article>
+            <article class="product-card">
+              <img class="product-card__image" src="images/product-sweater.svg" alt="Свитер объёмный" width="260" height="200">
+              <h3 class="product-card__title">Свитер объёмный</h3>
+              <p class="product-card__description">Тёплый свитер крупной вязки с высоким воротом.</p>
+              <p class="product-card__price">2 990 руб.</p>
+              <a class="product-card__link" href="product.html">Подробнее</a>
+            </article>
+            <article class="product-card">
+              <img class="product-card__image" src="images/product-shirt.svg" alt="Рубашка оверсайз" width="260" height="200">
+              <h3 class="product-card__title">Рубашка оверсайз</h3>
+              <p class="product-card__description">Хлопковая рубашка свободного кроя, бежевый цвет.</p>
+              <p class="product-card__price">2 490 руб.</p>
+              <a class="product-card__link" href="product.html">Подробнее</a>
+            </article>
+            <article class="product-card">
+              <img class="product-card__image" src="images/product-jeans.svg" alt="Джинсы прямые" width="260" height="200">
+              <h3 class="product-card__title">Джинсы прямые</h3>
+              <p class="product-card__description">Классические прямые джинсы плотного денима.</p>
+              <p class="product-card__price">3 990 руб.</p>
+              <a class="product-card__link" href="product.html">Подробнее</a>
+            </article>
+            <article class="product-card product-card--new">
+              <span class="product-card__badge">Новинка</span>
+              <img class="product-card__image" src="images/product-trench.svg" alt="Тренч классический" width="260" height="200">
+              <h3 class="product-card__title">Тренч классический</h3>
+              <p class="product-card__description">Пальто-тренч приглушённого песочного оттенка.</p>
+              <p class="product-card__price">7 990 руб.</p>
+              <a class="product-card__link" href="product.html">Подробнее</a>
+            </article>
+            <article class="product-card">
+              <img class="product-card__image" src="images/product-coat.svg" alt="Пальто драповое" width="260" height="200">
+              <h3 class="product-card__title">Пальто драповое</h3>
+              <p class="product-card__description">Стёганое пальто на тёплой подкладке, графитовый цвет.</p>
+              <p class="product-card__price">6 990 руб.</p>
+              <a class="product-card__link" href="product.html">Подробнее</a>
+            </article>
+            <article class="product-card product-card--discount">
+              <span class="product-card__badge">Скидка</span>
+              <img class="product-card__image" src="images/product-bag.svg" alt="Сумка кожаная" width="260" height="200">
+              <h3 class="product-card__title">Сумка кожаная</h3>
+              <p class="product-card__description">Компактная сумка через плечо из натуральной кожи.</p>
+              <p class="product-card__price"><s>5 990 руб.</s> 4 790 руб.</p>
+              <a class="product-card__link" href="product.html">Подробнее</a>
+            </article>
+            <article class="product-card">
+              <img class="product-card__image" src="images/product-scarf.svg" alt="Шарф шерстяной" width="260" height="200">
+              <h3 class="product-card__title">Шарф шерстяной</h3>
+              <p class="product-card__description">Широкий шарф из мягкой шерсти, три оттенка.</p>
+              <p class="product-card__price">1 590 руб.</p>
+              <a class="product-card__link" href="product.html">Подробнее</a>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copyright">&copy; 2026 «Гардероб». Учебный проект.</p>
+      <ul class="site-footer__links">
+        <li><a href="index.html#advantages">Преимущества</a></li>
+        <li><a href="index.html#popular">Популярные товары</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+      <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Наверх">Наверх ↑</button>
+</body>
+</html>
