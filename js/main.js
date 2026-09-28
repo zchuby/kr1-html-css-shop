@@ -1,74 +1,89 @@
-// Получаем модальное окно по id.
-const orderDialog = document.getElementById('order-dialog');
+// Скрипты сайта «Гардероб».
+// Минимальная логика: модальное окно, валидация форм, кнопка «Наверх».
 
-// Получаем все кнопки заказа в карточках товаров.
-const orderButtons = document.querySelectorAll('.product-card__button');
-
-// Получаем кнопку закрытия модального окна.
-const closeDialogButton = document.getElementById('close-order-dialog');
-
-// Получаем скрытое поле, в которое будет записан выбранный товар.
+// Модальное окно быстрого заказа (страница товара).
+const quickDialog = document.getElementById('quick-order-dialog');
+const quickButton = document.querySelector('.product__quick-button');
+const closeQuickDialogButton = document.getElementById('close-quick-dialog');
+const quickForm = document.getElementById('quick-order-form');
 const selectedProductInput = document.getElementById('selected-product');
 
-// Перебираем все кнопки «Заказать».
-orderButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    // Получаем название товара из data-атрибута.
-    const productName = button.dataset.product;
-
-    // Записываем название товара в скрытое поле формы.
-    selectedProductInput.value = productName;
-
-    // Открываем модальное окно.
-    orderDialog.showModal();
+if (quickButton && quickDialog) {
+  // Открываем модальное окно и подставляем название товара.
+  quickButton.addEventListener('click', () => {
+    selectedProductInput.value = quickButton.dataset.product;
+    quickDialog.showModal();
   });
-});
+}
 
-// Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
-  orderDialog.close();
-});
+if (closeQuickDialogButton && quickDialog) {
+  closeQuickDialogButton.addEventListener('click', () => {
+    quickDialog.close();
+  });
+}
 
-// Получаем форму заявки.
-const orderForm = document.getElementById('order-form');
-
-// Получаем сообщение об успешной отправке.
-const successMessage = document.getElementById('success-message');
-
-// Обрабатываем отправку формы.
-orderForm.addEventListener('submit', (event) => {
-  // Отменяем стандартную отправку формы,
-  // потому что backend пока не подключён.
-  event.preventDefault();
-
-  // Сбрасываем предыдущие признаки ошибок.
-  const formElements = Array.from(orderForm.elements);
-
-  formElements.forEach((element) => {
-    if (element.willValidate) {
+// Проверка формы: подсветка незаполненных обязательных полей.
+function markInvalid(form) {
+  form.querySelectorAll('input, select, textarea').forEach((element) => {
+    if (element.willValidate && !element.checkValidity()) {
+      element.setAttribute('aria-invalid', 'true');
+    } else {
       element.removeAttribute('aria-invalid');
     }
   });
+}
 
-  // Проверяем встроенные HTML-ограничения формы.
-  if (!orderForm.checkValidity()) {
-    formElements.forEach((element) => {
-      if (element.willValidate && !element.checkValidity()) {
-        element.setAttribute('aria-invalid', 'true');
-      }
-    });
+// Быстрый заказ: показываем сообщение и закрываем окно.
+if (quickForm) {
+  quickForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    markInvalid(quickForm);
 
-    // Показываем стандартные сообщения браузера.
-    orderForm.reportValidity();
-    return;
-  }
+    if (quickForm.checkValidity()) {
+      alert('Заявка отправлена! Менеджер свяжется с вами.');
+      quickForm.reset();
+      quickDialog.close();
+    }
+  });
+}
 
-  // Показываем сообщение об успешной отправке.
-  successMessage.hidden = false;
+// Форма заявки на странице order.html.
+const orderForm = document.getElementById('order-form');
+const orderSuccess = document.getElementById('success-message');
 
-  // Очищаем форму.
-  orderForm.reset();
+if (orderForm) {
+  orderForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    markInvalid(orderForm);
 
-  // Закрываем модальное окно.
-  orderDialog.close();
-});
+    if (orderForm.checkValidity()) {
+      orderForm.reset();
+      orderSuccess.hidden = false;
+    }
+  });
+}
+
+// Форма обратной связи на странице contacts.html.
+const feedbackForm = document.getElementById('feedback-form');
+const feedbackSuccess = document.getElementById('feedback-success');
+
+if (feedbackForm) {
+  feedbackForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    markInvalid(feedbackForm);
+
+    if (feedbackForm.checkValidity()) {
+      feedbackForm.reset();
+      feedbackSuccess.hidden = false;
+    }
+  });
+}
+
+// Кнопка «Наверх»: плавная прокрутка к началу страницы.
+const toTopButton = document.querySelector('.to-top');
+
+if (toTopButton) {
+  toTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
