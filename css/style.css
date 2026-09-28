@@ -1,32 +1,53 @@
 /*
   Стили сайта «Гардероб».
-  Контрольная работа №1: многостраничный HTML/CSS-сайт.
+  Практическое занятие №4: CSS-архитектура, переменные и состояния.
 */
 
-/* CSS-переменные проекта: цвета, отступы, скругления. */
+/* ===============================
+   1. Переменные проекта
+=============================== */
 :root {
+  /* Основные цвета проекта */
   --color-bg: #faf8f4;
-  --color-surface: #ffffff;
   --color-text: #2b2622;
   --color-muted: #6f675e;
   --color-primary: #3d5a45;
   --color-primary-dark: #2c4334;
   --color-accent: #c96f4a;
   --color-border: #e2dccf;
+  --color-surface: #ffffff;
+  --color-surface-accent: #f1ede4;
   --color-danger: #b00020;
+  --color-success: #168a2f;
   --color-success-bg: #eefaf0;
-  --color-success-border: #168a2f;
+  --color-white: #ffffff;
+
+  /* Отступы */
+  --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Скругления */
   --radius-sm: 6px;
-  --radius-md: 10px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  /* Размеры */
+  --container-width: 1100px;
+
+  /* Тени */
   --shadow-card: 0 2px 8px rgba(43, 38, 34, 0.08);
 }
 
+/* ===============================
+   2. Базовые стили
+=============================== */
+
 /*
-  Минимальный сброс стилей.
-  border-box: width включает content, padding и border.
+  Универсальное правило: border-box делает расчёт размеров понятным —
+  width включает content, padding и border.
 */
 * {
   box-sizing: border-box;
@@ -60,6 +81,67 @@ img {
   clip: rect(0 0 0 0);
 }
 
+/* ===============================
+   3. Общие элементы интерфейса
+=============================== */
+
+/* Базовое оформление ссылок и их состояний. */
+a {
+  color: var(--color-primary);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Кнопки. */
+.button {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  font: inherit;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.button:disabled,
+.button--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button--ghost {
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+}
+
+.button--ghost:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+/* ===============================
+   4. Компоненты страницы
+=============================== */
+
 /* Шапка: sticky, чтобы меню оставалось на экране при прокрутке. */
 .site-header {
   position: sticky;
@@ -70,7 +152,7 @@ img {
 }
 
 .site-header__inner {
-  max-width: 1100px;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: var(--space-md) 20px;
 
@@ -88,6 +170,10 @@ img {
   font-weight: bold;
   color: var(--color-primary);
   text-decoration: none;
+}
+
+.site-header__logo:hover {
+  color: var(--color-primary-dark);
 }
 
 /* Меню навигации: Flexbox-список. */
@@ -110,6 +196,11 @@ img {
   text-decoration: underline;
 }
 
+.site-nav__link:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
 /* Модификатор активного пункта меню. */
 .site-nav__link--active {
   color: var(--color-primary);
@@ -117,20 +208,15 @@ img {
   text-decoration: underline;
 }
 
-.site-nav__link:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-}
-
 /* Основной контент страницы. */
 .page-main {
-  max-width: 1100px;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: var(--space-lg) 20px;
 }
 
 .section__inner {
-  max-width: 1100px;
+  max-width: var(--container-width);
 }
 
 .section {
@@ -152,7 +238,7 @@ img {
   color: var(--color-muted);
 }
 
-/* Хлебные крошки (самостоятельная доработка). */
+/* Хлебные крошки. */
 .breadcrumbs {
   display: flex;
   flex-wrap: wrap;
@@ -179,7 +265,7 @@ img {
 /* Hero-блок: первый экран главной страницы. */
 .hero {
   background-color: var(--color-primary);
-  color: #ffffff;
+  color: var(--color-white);
   border-radius: var(--radius-md);
   margin-bottom: var(--space-lg);
 }
@@ -256,26 +342,29 @@ img {
   box-shadow: var(--shadow-card);
 }
 
+/* Состояние наведения: карточка реагирует на курсор. */
+.product-card:hover {
+  border-color: var(--color-primary);
+}
+
 /* Бейдж: absolute относительно карточки. */
 .product-card__badge {
   position: absolute;
   top: 12px;
   left: 12px;
   z-index: 1;
-  padding: 4px 10px;
+  padding: var(--space-xs) 10px;
   font-size: 12px;
   font-weight: bold;
-  color: #ffffff;
+  color: var(--color-white);
   background-color: var(--color-accent);
   border-radius: var(--radius-sm);
 }
 
-/* Бейдж «Новинка». */
 .product-card--new .product-card__badge {
   background-color: var(--color-primary);
 }
 
-/* Бейдж «Скидка». */
 .product-card--discount .product-card__badge {
   background-color: var(--color-danger);
 }
@@ -306,9 +395,7 @@ img {
 .product-card__link {
   margin-top: auto;
   align-self: flex-start;
-  color: var(--color-primary);
   font-weight: bold;
-  text-decoration: none;
 }
 
 .product-card__link:hover {
@@ -367,7 +454,7 @@ img {
 
 .filters__input {
   width: 100%;
-  padding: 8px 10px;
+  padding: var(--space-sm) 10px;
   border: 1px solid #cccccc;
   border-radius: var(--radius-sm);
   font: inherit;
@@ -447,7 +534,7 @@ img {
 
 .specs thead th {
   background-color: var(--color-primary);
-  color: #ffffff;
+  color: var(--color-white);
 }
 
 .specs tbody th {
@@ -457,10 +544,10 @@ img {
 }
 
 .specs tbody tr:hover {
-  background-color: #f5f1e8;
+  background-color: var(--color-surface-accent);
 }
 
-/* Отзывы (самостоятельная доработка). */
+/* Отзывы. */
 .reviews {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -517,11 +604,7 @@ img {
   font-size: 14px;
 }
 
-.contacts__item a {
-  color: var(--color-primary);
-}
-
-/* FAQ (самостоятельная доработка). */
+/* FAQ. */
 .faq__item {
   margin-bottom: var(--space-sm);
   padding: var(--space-md);
@@ -533,6 +616,11 @@ img {
 .faq__item summary {
   cursor: pointer;
   font-weight: bold;
+}
+
+.faq__item summary:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
 .faq__item p {
@@ -553,7 +641,7 @@ img {
 .aside-info .section__inner {
   padding: var(--space-md);
   border-left: 4px solid var(--color-primary);
-  background-color: #f1ede4;
+  background-color: var(--color-surface-accent);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 
@@ -566,137 +654,14 @@ img {
   margin: 0;
 }
 
-/* Кнопки. */
-.button {
-  display: inline-block;
-  padding: 10px 16px;
-  color: #ffffff;
-  background-color: var(--color-primary);
-  text-decoration: none;
-  border: none;
-  border-radius: var(--radius-sm);
-  font: inherit;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: var(--color-primary-dark);
-}
-
-.button:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 3px;
-}
-
-/* Модификатор «призрачной» кнопки. */
-.button--ghost {
-  color: var(--color-primary);
-  background-color: transparent;
-  border: 1px solid var(--color-primary);
-}
-
-.button--ghost:hover {
-  color: #ffffff;
-  background-color: var(--color-primary);
-}
-
-.button:disabled,
-.button--disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Формы: поля, подписи, сообщения. */
-.order-form__field {
-  margin-bottom: var(--space-md);
-}
-
-.order-form__label {
-  display: block;
-  margin-bottom: 6px;
-  font-weight: bold;
-}
-
-.order-form__input {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #cccccc;
-  border-radius: var(--radius-sm);
-  font: inherit;
-}
-
-.order-form__input:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
-/* Checkbox не должен растягиваться на всю ширину. */
-.order-form__field--checkbox .order-form__label {
-  font-weight: normal;
-}
-
-.order-form__field--checkbox input {
-  width: auto;
-  margin-right: var(--space-sm);
-}
-
-.order-form small {
-  display: block;
-  margin-top: 4px;
-  color: var(--color-muted);
-}
-
-.order-form__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: var(--space-lg);
-}
-
-/* Подсветка ошибочных полей: aria-invalid добавляет JavaScript. */
-[aria-invalid="true"] {
-  border-color: var(--color-danger);
-}
-
-/* Сообщение об успешной отправке. */
-.success-message {
-  max-width: 560px;
-  margin: var(--space-lg) 0;
-  padding: var(--space-md);
-  border-left: 4px solid var(--color-success-border);
-  background-color: var(--color-success-bg);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-}
-
-/*
-  Модальное окно быстрого заказа.
-  Элемент dialog открывается поверх страницы, z-index задаёт слой затемнения.
-*/
-.order-dialog {
-  width: min(100% - 32px, 480px);
-  padding: var(--space-lg);
-  border: none;
-  border-radius: var(--radius-md);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  z-index: 100;
-}
-
-.order-dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.order-dialog h2 {
-  margin-top: 0;
-}
-
 /* Фиксированная кнопка «Наверх». */
 .to-top {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  right: var(--space-lg);
+  bottom: var(--space-lg);
   z-index: 50;
   padding: 10px 14px;
-  color: #ffffff;
+  color: var(--color-white);
   background-color: var(--color-primary);
   border: none;
   border-radius: var(--radius-sm);
@@ -720,7 +685,7 @@ img {
 }
 
 .site-footer__inner {
-  max-width: 1100px;
+  max-width: var(--container-width);
   margin: 0 auto;
   padding: var(--space-lg) 20px;
   font-size: 14px;
@@ -748,7 +713,110 @@ img {
   text-decoration: underline;
 }
 
-/* Простая адаптивность: колонки сворачиваются на узких экранах. */
+/* ===============================
+   5. Форма и модальное окно
+=============================== */
+
+/* Поля формы, подписи, подсказки. */
+.order-form__field {
+  margin-bottom: var(--space-md);
+}
+
+.order-form__label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-weight: bold;
+}
+
+.order-form__input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cccccc;
+  border-radius: var(--radius-sm);
+  font: inherit;
+}
+
+/* Состояния полей: наведение и видимый фокус. */
+.order-form__input:hover {
+  border-color: var(--color-primary);
+}
+
+.order-form__input:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.order-form__field--checkbox .order-form__label {
+  font-weight: normal;
+}
+
+.order-form__field--checkbox input {
+  width: auto;
+  margin-right: var(--space-sm);
+}
+
+.order-form small {
+  display: block;
+  margin-top: var(--space-xs);
+  color: var(--color-muted);
+}
+
+.order-form__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: var(--space-lg);
+}
+
+.order-form__actions button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.order-form__actions button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+/* Подсветка ошибочных полей: aria-invalid добавляет JavaScript. */
+[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+/*
+  Модальное окно: элемент dialog открывается поверх страницы,
+  z-index задаёт слой поверх остальных элементов.
+*/
+.order-dialog {
+  width: min(100% - 32px, 480px);
+  padding: var(--space-lg);
+  border: none;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+
+.order-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.order-dialog h2 {
+  margin-top: 0;
+}
+
+/* Сообщение об успешной отправке. */
+.success-message {
+  max-width: 560px;
+  margin: var(--space-lg) 0;
+  padding: var(--space-md);
+  border-left: 4px solid var(--color-success);
+  background-color: var(--color-success-bg);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+/* ===============================
+   Адаптивность
+=============================== */
 @media (max-width: 900px) {
   .advantages {
     grid-template-columns: repeat(2, 1fr);
