@@ -158,6 +158,8 @@ a:focus-visible {
 .site-nav__list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: var(--space-md);
   margin: 0;
   padding: 0;
@@ -261,6 +263,12 @@ a:focus-visible {
 }
 
 /* Сетка карточек: CSS Grid */
+.product-card__link,
+.product-card .button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -270,6 +278,9 @@ a:focus-visible {
 /* Карточка товара: relative для бейджа */
 .product-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
   padding: var(--space-md);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
@@ -341,12 +352,18 @@ a:focus-visible {
 .catalog-layout {
   display: grid;
   grid-template-columns: 220px 1fr;
+  grid-template-areas: "filters products";
   gap: var(--space-lg);
   align-items: start;
 }
 
+.catalog-products {
+  grid-area: products;
+}
+
 /* Фильтры: sticky */
 .catalog-filters {
+  grid-area: filters;
   position: sticky;
   top: 80px;
   padding: var(--space-md);
