@@ -291,12 +291,9 @@ a:focus-visible {
   border-color: var(--color-primary);
 }
 
-/* Бейдж: absolute */
+/* Бейдж: строкой над названием, чтобы не перекрывать заголовок */
 .product-card__badge {
-  position: absolute;
-  top: var(--space-sm);
-  left: var(--space-sm);
-  z-index: 1;
+  align-self: flex-start;
   padding: var(--space-xs) 10px;
   font-size: 12px;
   font-weight: bold;
