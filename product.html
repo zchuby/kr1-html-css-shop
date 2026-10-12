@@ -57,7 +57,7 @@
       </article>
 
       <section class="section" aria-label="Характеристики товара">
-        <h2>Характеристики</h2>
+        <h2 class="section__title">Характеристики</h2>
         <table class="specs">
           <caption>Характеристики товара</caption>
           <thead>
@@ -88,16 +88,16 @@
       </section>
 
       <section class="section" aria-label="Отзывы">
-        <h2>Отзывы</h2>
+        <h2 class="section__title">Отзывы</h2>
 
         <article class="review">
-          <h3>Иван, 10.09.2026</h3>
-          <p>Хороший учебный товар, всё соответствует описанию.</p>
+          <h3 class="review__title">Иван, 10.09.2026</h3>
+          <p class="review__text">Хороший учебный товар, всё соответствует описанию.</p>
         </article>
 
         <article class="review">
-          <h3>Мария, 22.08.2026</h3>
-          <p>Заказала для проверки проекта — пришло быстро.</p>
+          <h3 class="review__title">Мария, 22.08.2026</h3>
+          <p class="review__text">Заказала для проверки проекта — пришло быстро.</p>
         </article>
       </section>
     </div>
@@ -105,7 +105,7 @@
 
   <!-- Модальное окно быстрого заказа -->
   <dialog class="order-dialog" id="quick-order-dialog" aria-labelledby="quick-order-title">
-    <h2 id="quick-order-title">Быстрый заказ</h2>
+    <h2 class="order-dialog__title" id="quick-order-title">Быстрый заказ</h2>
 
     <form class="order-form" id="quick-order-form" action="#" method="post" novalidate>
       <input id="selected-product" name="selected-product" type="hidden">
