@@ -7,12 +7,23 @@ const quickButton = document.querySelector('.product__quick-button');
 const closeQuickDialogButton = document.getElementById('close-quick-dialog');
 const quickForm = document.getElementById('quick-order-form');
 const selectedProductInput = document.getElementById('selected-product');
+const quickOrderProduct = document.getElementById('quick-order-product');
 
 if (quickButton && quickDialog) {
-  // Открываем модальное окно и подставляем название товара.
+  // Открываем модальное окно, подставляем название товара и фокус на первое поле.
   quickButton.addEventListener('click', () => {
     selectedProductInput.value = quickButton.dataset.product;
+
+    if (quickOrderProduct) {
+      quickOrderProduct.textContent = 'Вы заказываете: ' + quickButton.dataset.product;
+    }
+
     quickDialog.showModal();
+    const firstField = quickDialog.querySelector('input:not([type="hidden"])');
+
+    if (firstField) {
+      firstField.focus();
+    }
   });
 }
 
@@ -22,7 +33,16 @@ if (closeQuickDialogButton && quickDialog) {
   });
 }
 
-// Проверка формы: подсветка незаполненных обязательных полей.
+// Закрытие модального окна по клику на затемнение вокруг (backdrop).
+if (quickDialog) {
+  quickDialog.addEventListener('click', (event) => {
+    if (event.target === quickDialog) {
+      quickDialog.close();
+    }
+  });
+}
+
+// Проверка формы: подсветка незаполненных обязательных полей и тексты ошибок.
 function markInvalid(form) {
   form.querySelectorAll('input, select, textarea').forEach((element) => {
     if (element.willValidate && !element.checkValidity()) {
@@ -30,6 +50,26 @@ function markInvalid(form) {
     } else {
       element.removeAttribute('aria-invalid');
     }
+
+    // Показываем или скрываем текст ошибки, связанный с полем через aria-describedby.
+    const describedBy = element.getAttribute('aria-describedby');
+
+    if (describedBy) {
+      describedBy.split(' ').forEach((id) => {
+        const hint = document.getElementById(id);
+
+        if (hint && hint.classList.contains('order-form__error')) {
+          hint.hidden = element.getAttribute('aria-invalid') !== 'true';
+        }
+      });
+    }
+  });
+}
+
+// Скрыть все сообщения об ошибках формы (после успешной отправки).
+function hideErrors(form) {
+  form.querySelectorAll('.order-form__error').forEach((hint) => {
+    hint.hidden = true;
   });
 }
 
@@ -42,6 +82,7 @@ if (quickForm) {
     if (quickForm.checkValidity()) {
       alert('Заявка отправлена! Менеджер свяжется с вами.');
       quickForm.reset();
+      hideErrors(quickForm);
       quickDialog.close();
     }
   });
@@ -58,6 +99,7 @@ if (orderForm) {
 
     if (orderForm.checkValidity()) {
       orderForm.reset();
+      hideErrors(orderForm);
       orderSuccess.hidden = false;
     }
   });
@@ -74,6 +116,7 @@ if (feedbackForm) {
 
     if (feedbackForm.checkValidity()) {
       feedbackForm.reset();
+      hideErrors(feedbackForm);
       feedbackSuccess.hidden = false;
     }
   });

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Категория «Верхняя одежда» интернет-магазина «Гардероб»: пальто, куртки, плащи и пиджаки с карточками товаров и быстрым заказом.">
+  <title>Верхняя одежда — страница категории</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">ShopProject</a>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list">
+          <li><a class="site-nav__link" href="index.html">Главная</a></li>
+          <li><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
+          <li><a class="site-nav__link" href="order.html">Заявка</a></li>
+          <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-main">
+      <ul class="breadcrumbs" aria-label="Хлебные крошки">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="catalog.html">Каталог</a></li>
+        <li class="breadcrumbs__item--current">Верхняя одежда</li>
+      </ul>
+
+      <h1 class="page-title">Верхняя одежда</h1>
+      <p class="page-lead">
+        Пальто, куртки, плащи и пиджаки на осенне-зимний сезон.
+        Каждая модель доступна к заказу через форму заявки.
+      </p>
+
+      <section class="section" aria-label="Товары категории">
+        <div class="product-grid">
+          <article class="product-card product-card--discount">
+            <span class="product-card__badge product-card__badge--discount">Скидка</span>
+            <p class="product-card__category"><a href="category.html">Верхняя одежда</a></p>
+            <h3 class="product-card__title">Пальто демисезонное</h3>
+            <p class="product-card__description">Прямой крой, утеплённая подкладка, потайная застёжка.</p>
+            <p class="product-card__price">3500 руб. <span class="product-card__old-price">4200 руб.</span></p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card product-card--hit product-card--featured">
+            <span class="product-card__badge product-card__badge--hit">Хит</span>
+            <p class="product-card__category"><a href="category.html">Верхняя одежда</a></p>
+            <h3 class="product-card__title">Куртка кожаная</h3>
+            <p class="product-card__description">Натуральная кожа, классический силуэт, внутренний карман.</p>
+            <p class="product-card__price">Цена: 5000 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <p class="product-card__category"><a href="category.html">Верхняя одежда</a></p>
+            <h3 class="product-card__title">Плащ лёгкий</h3>
+            <p class="product-card__description">Водоотталкивающая ткань, съёмный пояс, капюшон в комплекте.</p>
+            <p class="product-card__price">Цена: 3200 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <p class="product-card__category"><a href="category.html">Верхняя одежда</a></p>
+            <h3 class="product-card__title">Пиджак приталенный</h3>
+            <p class="product-card__description">Строгий силуэт для офиса, одна пуговица, подкладка.</p>
+            <p class="product-card__price">Цена: 2800 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Другие категории">
+        <h2 class="section__title">Другие категории</h2>
+        <ul class="category-links">
+          <li class="category-links__item">
+            <a class="category-links__link" href="catalog.html">Трикотаж</a>
+            <span class="category-links__note">джемперы, кардиганы и водолазки</span>
+          </li>
+          <li class="category-links__item">
+            <a class="category-links__link" href="catalog.html">Аксессуары</a>
+            <span class="category-links__note">шарфы, сумки и ремни</span>
+          </li>
+          <li class="category-links__item">
+            <a class="category-links__link" href="catalog.html">Весь каталог</a>
+            <span class="category-links__note">все категории и фильтры</span>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copyright">&copy; 2026 Учебный проект. Все права защищены.</p>
+      <ul class="site-footer__links">
+        <li><a href="index.html#advantages">Преимущества</a></li>
+        <li><a href="index.html#popular">Популярные товары</a></li>
+        <li><a href="contacts.html">Контакты</a></li>
+      </ul>
+      <p>Дисциплина: Фронтенд и бэкенд разработка</p>
+    </div>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="Наверх">Наверх</button>
+</body>
+</html>

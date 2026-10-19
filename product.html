@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Страница товара: подробные характеристики, таблица размеров, отзывы покупателей и быстрый заказ.">
-  <title>Платье Жаклин — цена, характеристики и отзывы</title>
+  <meta name="description" content="Пальто демисезонное: состав, сезон, таблица размеров, отзывы покупателей и быстрый заказ со скидкой.">
+  <title>Пальто демисезонное — цена, характеристики и отзывы</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -29,26 +29,53 @@
       <ul class="breadcrumbs" aria-label="Хлебные крошки">
         <li><a href="index.html">Главная</a></li>
         <li><a href="catalog.html">Каталог</a></li>
-        <li class="breadcrumbs__item--current">Товар 1</li>
+        <li><a href="category.html">Верхняя одежда</a></li>
+        <li class="breadcrumbs__item--current">Пальто демисезонное</li>
       </ul>
 
       <article class="product">
         <div class="product__gallery">
-          <img class="product__image" src="images/product-1.svg" alt="Изображение товара 1" width="400" height="300">
+          <img class="product__image" src="images/product-1.svg" alt="Пальто демисезонное, вид спереди" width="400" height="300">
+          <ul class="product__thumbs" aria-label="Дополнительные изображения товара">
+            <li><img class="product__thumb" src="images/product-1.svg" alt="Пальто, вид спереди" width="90" height="68"></li>
+            <li><img class="product__thumb" src="images/product-2.svg" alt="Пальто, вид сзади" width="90" height="68"></li>
+            <li><img class="product__thumb" src="images/product-3.svg" alt="Пальто, крупный план ткани" width="90" height="68"></li>
+          </ul>
         </div>
 
         <div class="product__info">
-          <h1>Товар 1</h1>
-          <p class="product__price">Цена: 1000 руб.</p>
-          <p class="product__description">
-            Это карточка учебного товара. Здесь размещается описание товара:
-            его назначение, особенности и другая информация, которая помогает
-            покупателю принять решение.
+          <p class="product__meta">
+            <span class="product-card__badge product-card__badge--discount">Скидка</span>
+            <span class="product__sku">Артикул: VG-1024</span>
+            <span class="product__stock product__stock--in">В наличии</span>
           </p>
+          <h1>Пальто демисезонное</h1>
+          <p class="product__price">3500 руб. <span class="product-card__old-price">4200 руб.</span></p>
+          <p class="product__description">
+            Прямое демисезонное пальто на утеплённой подкладке. Потайная застёжка,
+            два прорезных кармана, съёмный пояс. Подходит для офиса и на каждый день:
+            держит форму, не мнётся и не продувается в межсезонье.
+          </p>
+          <ul class="product__features">
+            <li>утеплённая подкладка на весь рост;</li>
+            <li>потайная застёжка на кнопки;</li>
+            <li>съёмный пояс в комплекте;</li>
+            <li>не требует химчистки после каждого сезона.</li>
+          </ul>
+
+          <form class="product__options" action="#" method="get">
+            <fieldset class="product__option-group">
+              <legend>Размер</legend>
+              <label class="product__option"><input type="radio" name="size" value="44" checked> 44</label>
+              <label class="product__option"><input type="radio" name="size" value="46"> 46</label>
+              <label class="product__option"><input type="radio" name="size" value="48"> 48</label>
+              <label class="product__option"><input type="radio" name="size" value="50"> 50</label>
+            </fieldset>
+          </form>
 
           <div class="product__actions">
             <a class="button" href="order.html">Оставить заявку</a>
-            <button class="button product__quick-button" type="button" data-product="Товар 1">
+            <button class="button button--secondary product__quick-button" type="button" data-product="Пальто демисезонное">
               Быстрый заказ
             </button>
           </div>
@@ -69,19 +96,89 @@
           <tbody>
             <tr>
               <th scope="row">Категория</th>
-              <td>Категория 1</td>
+              <td><a href="category.html">Верхняя одежда</a></td>
             </tr>
             <tr>
-              <th scope="row">Материал</th>
-              <td>Учебный материал</td>
+              <th scope="row">Артикул</th>
+              <td>VG-1024</td>
+            </tr>
+            <tr>
+              <th scope="row">Материал верха</th>
+              <td>Полушерсть 60%, полиэстер 40%</td>
+            </tr>
+            <tr>
+              <th scope="row">Подкладка</th>
+              <td>Вискоза 100%</td>
             </tr>
             <tr>
               <th scope="row">Цвет</th>
-              <td>Синий</td>
+              <td>Тёмно-синий</td>
+            </tr>
+            <tr>
+              <th scope="row">Сезон</th>
+              <td>Осень — весна</td>
+            </tr>
+            <tr>
+              <th scope="row">Застёжка</th>
+              <td>Потайная, на кнопках</td>
+            </tr>
+            <tr>
+              <th scope="row">Карманы</th>
+              <td>2 прорезных с клапанами</td>
+            </tr>
+            <tr>
+              <th scope="row">Уход</th>
+              <td>Стирка при 30°, без отжима; химчистка допустима</td>
             </tr>
             <tr>
               <th scope="row">Гарантия</th>
               <td>12 месяцев</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section" aria-label="Таблица размеров">
+        <h2 class="section__title">Таблица размеров</h2>
+        <table class="specs size-table">
+          <caption>Замеры изделия, см</caption>
+          <thead>
+            <tr>
+              <th scope="col">Размер</th>
+              <th scope="col">Обхват груди</th>
+              <th scope="col">Обхват талии</th>
+              <th scope="col">Длина по спинке</th>
+              <th scope="col">Длина рукава</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">44</th>
+              <td>88</td>
+              <td>70</td>
+              <td>98</td>
+              <td>60</td>
+            </tr>
+            <tr>
+              <th scope="row">46</th>
+              <td>92</td>
+              <td>74</td>
+              <td>99</td>
+              <td>61</td>
+            </tr>
+            <tr>
+              <th scope="row">48</th>
+              <td>96</td>
+              <td>78</td>
+              <td>100</td>
+              <td>61</td>
+            </tr>
+            <tr>
+              <th scope="row">50</th>
+              <td>100</td>
+              <td>82</td>
+              <td>101</td>
+              <td>62</td>
             </tr>
           </tbody>
         </table>
@@ -92,12 +189,12 @@
 
         <article class="review">
           <h3 class="review__title">Иван, 10.09.2026</h3>
-          <p class="review__text">Хороший учебный товар, всё соответствует описанию.</p>
+          <p class="review__text">Пальто село по таблице размеров, плотное и тёплое. Ношу третью неделю.</p>
         </article>
 
         <article class="review">
           <h3 class="review__title">Мария, 22.08.2026</h3>
-          <p class="review__text">Заказала для проверки проекта — пришло быстро.</p>
+          <p class="review__text">Заказала по акции — пришло быстро, подкладка пришита аккуратно.</p>
         </article>
       </section>
     </div>
@@ -106,33 +203,40 @@
   <!-- Модальное окно быстрого заказа -->
   <dialog class="order-dialog" id="quick-order-dialog" aria-labelledby="quick-order-title">
     <h2 class="order-dialog__title" id="quick-order-title">Быстрый заказ</h2>
+    <p class="order-dialog__product" id="quick-order-product">Товар не выбран</p>
 
     <form class="order-form" id="quick-order-form" action="#" method="post" novalidate>
       <input id="selected-product" name="selected-product" type="hidden">
 
       <div class="order-form__field">
-        <label class="order-form__label" for="quick-name">Имя</label>
+        <label class="order-form__label" for="quick-name">Имя <span aria-hidden="true">*</span></label>
         <input class="order-form__input" id="quick-name" name="name" type="text"
-               placeholder="Введите ваше имя" minlength="2" autocomplete="given-name" required>
+               placeholder="Введите ваше имя" minlength="2" autocomplete="given-name"
+               aria-required="true" aria-describedby="quick-name-error" required>
+        <small class="order-form__error" id="quick-name-error" hidden>Укажите имя (минимум 2 символа).</small>
       </div>
 
       <div class="order-form__field">
-        <label class="order-form__label" for="quick-phone">Телефон</label>
+        <label class="order-form__label" for="quick-phone">Телефон <span aria-hidden="true">*</span></label>
         <input class="order-form__input" id="quick-phone" name="phone" type="tel" inputmode="tel"
-               placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$" required>
-        <small>Формат: +7 (900) 000-00-00</small>
+               placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+               autocomplete="tel" aria-required="true" aria-describedby="quick-phone-hint quick-phone-error" required>
+        <small id="quick-phone-hint">Формат: +7 (900) 000-00-00</small>
+        <small class="order-form__error" id="quick-phone-error" hidden>Телефон должен быть в формате +7 (900) 000-00-00.</small>
       </div>
 
       <div class="order-form__field order-form__field--checkbox">
         <label class="order-form__label">
-          <input id="quick-agreement" name="agreement" type="checkbox" required>
+          <input id="quick-agreement" name="agreement" type="checkbox"
+                 aria-required="true" aria-describedby="quick-agreement-error" required>
           Я согласен на обработку данных
         </label>
+        <small class="order-form__error" id="quick-agreement-error" hidden>Без согласия заявку отправить нельзя.</small>
       </div>
 
       <div class="order-form__actions">
-        <button type="button" id="close-quick-dialog">Закрыть</button>
-        <button type="submit">Отправить</button>
+        <button class="button button--secondary" type="button" id="close-quick-dialog">Закрыть</button>
+        <button class="button" type="submit">Отправить</button>
       </div>
     </form>
   </dialog>
