@@ -107,15 +107,39 @@ a:focus-visible {
   border-radius: var(--radius-sm);
   font: inherit;
   cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
 }
 
 .button:hover {
   background-color: var(--color-primary-dark);
 }
 
+/* Нажатая кнопка: лёгкое смещение вниз */
+.button:active {
+  background-color: var(--color-primary-dark);
+  transform: translateY(1px);
+}
+
 .button:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
+}
+
+/* Второстепенный вариант кнопки: прозрачный фон с обводкой */
+.button--secondary {
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+}
+
+.button--secondary:hover {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+.button--secondary:active {
+  color: var(--color-white);
+  background-color: var(--color-primary-dark);
 }
 
 .button:disabled,
@@ -285,10 +309,41 @@ a:focus-visible {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background-color: var(--color-bg);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
+/* Наведение: подсветка рамки, тень и лёгкий подъём карточки */
 .product-card:hover {
   border-color: var(--color-primary);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Фокус с клавиатуры на любом элементе карточки: та же подсветка без сдвига */
+.product-card:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+/* Варианты карточки через БЭМ-модификаторы */
+/* Хит продаж: синяя рамка */
+.product-card--hit {
+  border-color: var(--color-primary);
+}
+
+/* Выделенная карточка: акцентная заливка фона */
+.product-card--featured {
+  border-color: var(--color-primary);
+  background-color: var(--color-surface-accent);
+}
+
+/* Нет в наличии: приглушённая карточка */
+.product-card--out-of-stock {
+  opacity: 0.7;
+}
+
+.product-card--out-of-stock .product-card__price {
+  color: var(--color-muted);
 }
 
 /* Бейдж: строкой над названием, чтобы не перекрывать заголовок */
@@ -307,6 +362,15 @@ a:focus-visible {
 }
 
 .product-card--new .product-card__badge {
+  background-color: var(--color-success);
+}
+
+/* Прямые модификаторы бейджа: работают и вне карточки товара */
+.product-card__badge--discount {
+  background-color: var(--color-danger);
+}
+
+.product-card__badge--new {
   background-color: var(--color-success);
 }
 
@@ -343,6 +407,45 @@ a:focus-visible {
 .product-card__link:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 3px;
+}
+
+/* Категория в карточке: мелкая подпись над названием */
+.product-card__category {
+  margin: 0;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-muted);
+}
+
+.product-card__category a {
+  color: var(--color-muted);
+}
+
+.product-card__category a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Зачёркнутая старая цена у карточки со скидкой */
+.product-card__old-price {
+  font-weight: normal;
+  font-size: 14px;
+  color: var(--color-muted);
+  text-decoration: line-through;
+}
+
+/* Действия в карточке: ссылка «Подробнее» и кнопка «Заказать» */
+.product-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-top: auto;
+}
+
+.product-card__button {
+  font-size: 14px;
 }
 
 /* Каталог: фильтры + товары на Grid */
@@ -405,6 +508,41 @@ a:focus-visible {
   color: var(--color-muted);
 }
 
+/* Ссылки на категории (страница category.html) */
+.category-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.category-links__item {
+  padding: var(--space-md);
+  margin-bottom: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s ease;
+}
+
+.category-links__item:hover {
+  border-color: var(--color-primary);
+}
+
+.category-links__link {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.category-links__link:hover {
+  text-decoration: underline;
+}
+
+.category-links__note {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
 /* Страница товара: Flex */
 .product {
   display: flex;
@@ -419,6 +557,98 @@ a:focus-visible {
 .product__image {
   width: 100%;
   border-radius: var(--radius-md);
+}
+
+/* Миниатюры галереи товара */
+.product__thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: var(--space-md) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.product__thumb {
+  display: block;
+  padding: var(--space-xs);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s ease;
+}
+
+.product__thumb:hover {
+  border-color: var(--color-primary);
+}
+
+/* Строка меты товара: бейдж, артикул, наличие */
+.product__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-md);
+  margin: 0 0 var(--space-sm);
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.product__stock--in {
+  color: var(--color-success);
+  font-weight: bold;
+}
+
+/* Список особенностей товара */
+.product__features {
+  margin: 0 0 var(--space-lg);
+  padding-left: 20px;
+  color: var(--color-muted);
+}
+
+.product__features li {
+  margin-bottom: var(--space-xs);
+}
+
+/* Выбор размера: группа радиокнопок */
+.product__options {
+  margin: 0 0 var(--space-lg);
+}
+
+.product__option-group {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+.product__option-group legend {
+  font-weight: bold;
+  padding: 0;
+  margin-bottom: var(--space-sm);
+}
+
+.product__option {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-right: var(--space-md);
+  margin-bottom: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.product__option:hover {
+  border-color: var(--color-primary);
+}
+
+.product__option input {
+  margin: 0;
+}
+
+.product__option:focus-within {
+  border-color: var(--color-primary);
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .product__info h1 {
@@ -696,6 +926,20 @@ a:focus-visible {
   border-color: var(--color-danger);
 }
 
+/* Тексты ошибок формы: показывает JavaScript при aria-invalid */
+.order-form__error {
+  display: block;
+  margin-top: var(--space-xs);
+  color: var(--color-danger);
+}
+
+/* Подсказка про обязательные поля в начале формы */
+.order-form__hint {
+  margin: 0 0 var(--space-md);
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
 /* Модальное окно */
 .order-dialog {
   width: min(100% - 32px, 480px);
@@ -707,6 +951,16 @@ a:focus-visible {
 
 .order-dialog__title {
   margin-top: 0;
+}
+
+/* Выбранный товар в модальном окне быстрого заказа */
+.order-dialog__product {
+  margin: 0 0 var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+  font-weight: bold;
 }
 
 .order-dialog::backdrop {
@@ -758,4 +1012,13 @@ a:focus-visible {
 :target {
   outline: 2px dashed var(--color-primary);
   outline-offset: 4px;
+}
+
+/* Доступность: при отключённой анимации убираем сдвиги и плавные переходы */
+@media (prefers-reduced-motion: reduce) {
+  .product-card,
+  .button {
+    transition: none;
+    transform: none;
+  }
 }

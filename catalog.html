@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Каталог интернет-магазина «Гардероб»: восемь моделей, фильтры по категории и цене, карточки товаров.">
-  <title>Каталог одежды — фильтры по категории и цене</title>
+  <meta name="description" content="Каталог интернет-магазина «Гардероб»: двенадцать моделей в категориях «Верхняя одежда», «Трикотаж» и «Аксессуары», фильтры по категории и цене.">
+  <title>Каталог одежды — 12 моделей с фильтрами по категории и цене</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
@@ -39,9 +39,9 @@
           <form class="filters" action="#" method="get">
             <fieldset class="filters__group">
               <legend>Категория</legend>
-              <label class="filters__option"><input type="checkbox" name="category" value="1" checked> Категория 1</label>
-              <label class="filters__option"><input type="checkbox" name="category" value="2"> Категория 2</label>
-              <label class="filters__option"><input type="checkbox" name="category" value="3"> Категория 3</label>
+              <label class="filters__option"><input type="checkbox" name="category" value="outerwear" checked> Верхняя одежда</label>
+              <label class="filters__option"><input type="checkbox" name="category" value="knitwear"> Трикотаж</label>
+              <label class="filters__option"><input type="checkbox" name="category" value="accessories"> Аксессуары</label>
             </fieldset>
             <fieldset class="filters__group">
               <legend>Цена</legend>
@@ -58,63 +58,140 @@
         <section class="section catalog-products" aria-label="Список товаров">
           <h2 class="visually-hidden">Товары</h2>
           <div class="product-grid">
-          <article class="product-card">
-            <span class="product-card__badge">Хит</span>
-            <h3 class="product-card__title">Товар 1</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1000 руб.</p>
-            <a class="product-card__link" href="product.html">Подробнее</a>
+          <article class="product-card product-card--discount">
+            <span class="product-card__badge product-card__badge--discount">Скидка</span>
+            <p class="product-card__category"><a href="category.html">Верхняя одежда</a></p>
+            <h3 class="product-card__title">Пальто демисезонное</h3>
+            <p class="product-card__description">Прямой крой, утеплённая подкладка, потайная застёжка.</p>
+            <p class="product-card__price">3500 руб. <span class="product-card__old-price">4200 руб.</span></p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card product-card--hit product-card--featured">
+            <span class="product-card__badge product-card__badge--hit">Хит</span>
+            <p class="product-card__category"><a href="category.html">Верхняя одежда</a></p>
+            <h3 class="product-card__title">Куртка кожаная</h3>
+            <p class="product-card__description">Натуральная кожа, классический силуэт, внутренний карман.</p>
+            <p class="product-card__price">Цена: 5000 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
           </article>
 
           <article class="product-card">
-            <h3 class="product-card__title">Товар 2</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 1500 руб.</p>
-            <a class="product-card__link" href="product.html">Подробнее</a>
+            <p class="product-card__category"><a href="category.html">Верхняя одежда</a></p>
+            <h3 class="product-card__title">Плащ лёгкий</h3>
+            <p class="product-card__description">Водоотталкивающая ткань, съёмный пояс, капюшон в комплекте.</p>
+            <p class="product-card__price">Цена: 3200 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
           </article>
 
           <article class="product-card">
-            <h3 class="product-card__title">Товар 3</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 2000 руб.</p>
-            <a class="product-card__link" href="product.html">Подробнее</a>
-          </article>
-
-          <article class="product-card">
-            <h3 class="product-card__title">Товар 4</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 2500 руб.</p>
-            <a class="product-card__link" href="product.html">Подробнее</a>
+            <p class="product-card__category"><a href="category.html">Верхняя одежда</a></p>
+            <h3 class="product-card__title">Пиджак приталенный</h3>
+            <p class="product-card__description">Строгий силуэт для офиса, одна пуговица, подкладка.</p>
+            <p class="product-card__price">Цена: 2800 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
           </article>
 
           <article class="product-card product-card--new">
-            <span class="product-card__badge">Новинка</span>
-            <h3 class="product-card__title">Товар 5</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 2500 руб.</p>
-            <a class="product-card__link" href="product.html">Подробнее</a>
+            <span class="product-card__badge product-card__badge--new">Новинка</span>
+            <p class="product-card__category">Трикотаж</p>
+            <h3 class="product-card__title">Джемпер с горловиной</h3>
+            <p class="product-card__description">Мягкая пряжа, свободный крой, широкий рукав.</p>
+            <p class="product-card__price">Цена: 1500 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
           </article>
 
           <article class="product-card">
-            <h3 class="product-card__title">Товар 6</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 3000 руб.</p>
-            <a class="product-card__link" href="product.html">Подробнее</a>
-          </article>
-
-          <article class="product-card product-card--discount">
-            <span class="product-card__badge">Скидка</span>
-            <h3 class="product-card__title">Товар 7</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
-            <p class="product-card__price">Цена: 3500 руб.</p>
-            <a class="product-card__link" href="product.html">Подробнее</a>
+            <p class="product-card__category">Трикотаж</p>
+            <h3 class="product-card__title">Кардиган на пуговицах</h3>
+            <p class="product-card__description">Удлинённый силуэт, вязка «косичка», два кармана.</p>
+            <p class="product-card__price">Цена: 2200 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
           </article>
 
           <article class="product-card">
-            <h3 class="product-card__title">Товар 8</h3>
-            <p class="product-card__description">Краткое описание учебного товара.</p>
+            <p class="product-card__category">Трикотаж</p>
+            <h3 class="product-card__title">Водолазка тонкая</h3>
+            <p class="product-card__description">Плотное прилегание, высокий воротник, базовые оттенки.</p>
             <p class="product-card__price">Цена: 1200 руб.</p>
-            <a class="product-card__link" href="product.html">Подробнее</a>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <p class="product-card__category">Трикотаж</p>
+            <h3 class="product-card__title">Свитер крупной вязки</h3>
+            <p class="product-card__description">Объёмная пряжа, круглый ворот, длинный рукав.</p>
+            <p class="product-card__price">Цена: 1800 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Шарф вязаный</h3>
+            <p class="product-card__description">Шерстяная нить, бахрома по краям, тёплые оттенки.</p>
+            <p class="product-card__price">Цена: 800 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card product-card--hit">
+            <span class="product-card__badge product-card__badge--hit">Хит</span>
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Сумка кожаная</h3>
+            <p class="product-card__description">Компактный формат, регулируемый ремешок, подкладка.</p>
+            <p class="product-card__price">Цена: 2500 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Ремень кожаный</h3>
+            <p class="product-card__description">Классическая пряжка, ширина 3 см, чёрный и коричневый.</p>
+            <p class="product-card__price">Цена: 900 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <a class="button button--secondary product-card__button" href="order.html">Заказать</a>
+            </div>
+          </article>
+
+          <article class="product-card product-card--out-of-stock">
+            <p class="product-card__category">Аксессуары</p>
+            <h3 class="product-card__title">Перчатки трикотажные</h3>
+            <p class="product-card__description">Тёплая вязка, сенсорные пальцы, три размера.</p>
+            <p class="product-card__price">Цена: 600 руб.</p>
+            <div class="product-card__actions">
+              <a class="product-card__link" href="product.html">Подробнее</a>
+              <span class="button button--disabled product-card__button" aria-disabled="true">Нет в наличии</span>
+            </div>
           </article>
           </div>
         </section>
