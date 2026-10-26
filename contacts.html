@@ -86,7 +86,8 @@
         </section>
 
         <section class="section" aria-label="Форма обратной связи">
-          <h2 class="section__title">Написать нам</h2>
+          <h2 class="section__title">Оставьте телефон — мы сами свяжемся</h2>
+          <p class="page-lead">Перезвоним в течение 15 минут в рабочее время и ответим на любые вопросы.</p>
 
           <form class="order-form" id="feedback-form" action="#" method="post" novalidate>
             <div class="order-form__field">
@@ -98,19 +99,28 @@
             </div>
 
             <div class="order-form__field">
-              <label class="order-form__label" for="feedback-email">E-mail <span aria-hidden="true">*</span></label>
-              <input class="order-form__input" id="feedback-email" name="email" type="email"
-                     placeholder="example@mail.ru"
-                     aria-required="true" aria-describedby="feedback-email-error" required>
-              <small class="order-form__error" id="feedback-email-error" hidden>Укажите корректный e-mail.</small>
+              <label class="order-form__label" for="feedback-phone">Телефон <span aria-hidden="true">*</span></label>
+              <input class="order-form__input" id="feedback-phone" name="phone" type="tel" inputmode="tel"
+                     placeholder="+7 (900) 000-00-00" pattern="^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$"
+                     autocomplete="tel" aria-required="true"
+                     aria-describedby="feedback-phone-hint feedback-phone-error" required>
+              <small id="feedback-phone-hint">Формат: +7 (900) 000-00-00</small>
+              <small class="order-form__error" id="feedback-phone-error" hidden>Телефон должен быть в формате +7 (900) 000-00-00.</small>
             </div>
 
             <div class="order-form__field">
-              <label class="order-form__label" for="feedback-message">Сообщение <span aria-hidden="true">*</span></label>
-              <textarea class="order-form__input" id="feedback-message" name="message" rows="5"
-                        placeholder="Ваш вопрос" aria-required="true"
-                        aria-describedby="feedback-message-error" required></textarea>
-              <small class="order-form__error" id="feedback-message-error" hidden>Напишите текст сообщения.</small>
+              <label class="order-form__label" for="feedback-message">Вопрос или комментарий</label>
+              <textarea class="order-form__input" id="feedback-message" name="message" rows="4"
+                        placeholder="Например: нужен зал с циклорамой на субботу"></textarea>
+            </div>
+
+            <div class="order-form__field order-form__field--checkbox">
+              <label class="order-form__label">
+                <input id="feedback-agreement" name="agreement" type="checkbox"
+                       aria-required="true" aria-describedby="feedback-agreement-error" required>
+                Я согласен на обработку данных <span aria-hidden="true">*</span>
+              </label>
+              <small class="order-form__error" id="feedback-agreement-error" hidden>Без согласия заявку отправить нельзя.</small>
             </div>
 
             <div class="order-form__actions">
@@ -120,7 +130,7 @@
           </form>
 
           <p class="success-message" id="feedback-success" role="status" aria-live="polite" hidden>
-            Сообщение отправлено! Ответим на e-mail в течение дня.
+            Заявка отправлена! Перезвоним на указанный номер в течение дня.
           </p>
         </section>
       </div>
