@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Каталог интернет-магазина «Гардероб»: вязаные кардиганы, свитера, рубашки и юбки-шорты — семь моделей с фото, фильтры по категории и цене.">
-  <title>Каталог одежды — кардиганы, свитера, рубашки и юбки</title>
+  <meta name="description" content="Все залы фотостудии «Ракурс»: 15 залов на трёх локациях Москвы с фото, площадью и ценой — от 1000 до 3800 руб./час.">
+  <title>Наши залы — 15 залов от 1000 руб./час — Ракурс</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">Ракурс</a>
 
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li><a class="site-nav__link" href="index.html">Главная</a></li>
-          <li><a class="site-nav__link site-nav__link--active" href="catalog.html">Каталог</a></li>
-          <li><a class="site-nav__link" href="order.html">Заявка</a></li>
+          <li><a class="site-nav__link site-nav__link--active" href="catalog.html">Наши залы</a></li>
+          <li><a class="site-nav__link" href="order.html">Бронирование</a></li>
           <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
@@ -28,122 +28,227 @@
     <div class="page-main">
       <ul class="breadcrumbs" aria-label="Хлебные крошки">
         <li><a href="index.html">Главная</a></li>
-        <li class="breadcrumbs__item--current">Каталог</li>
+        <li class="breadcrumbs__item--current">Наши залы</li>
       </ul>
 
-      <h1 class="page-title">Каталог товаров</h1>
+      <h1 class="page-title">Наши залы</h1>
+      <p class="page-lead">15 залов в трёх локациях Москвы. Цены указаны за час аренды.</p>
 
       <div class="catalog-layout">
-        <aside class="catalog-filters" aria-label="Фильтры каталога">
+        <aside class="catalog-filters" aria-label="Фильтры залов">
           <h2 class="catalog-filters__title">Фильтры</h2>
           <form class="filters" action="#" method="get">
             <fieldset class="filters__group">
-              <legend>Категория</legend>
-              <label class="filters__option"><input type="checkbox" name="category" value="knitwear" checked> Трикотаж</label>
-              <label class="filters__option"><input type="checkbox" name="category" value="shirts"> Рубашки</label>
-              <label class="filters__option"><input type="checkbox" name="category" value="skirts"> Юбки и шорты</label>
+              <legend>Локация</legend>
+              <label class="filters__option"><input type="checkbox" name="location" value="baumanskaya" checked> Бауманская</label>
+              <label class="filters__option"><input type="checkbox" name="location" value="dmitrovskaya" checked> Дмитровская</label>
+              <label class="filters__option"><input type="checkbox" name="location" value="preobrazhenskaya" checked> Преображенская пл.</label>
             </fieldset>
             <fieldset class="filters__group">
-              <legend>Цена</legend>
-              <label class="filters__option" for="price-from">От, руб.</label>
-              <input class="filters__input" id="price-from" name="price-from" type="number" min="0" step="100" placeholder="0">
-              <label class="filters__option" for="price-to">До, руб.</label>
-              <input class="filters__input" id="price-to" name="price-to" type="number" min="0" step="100" placeholder="5000">
+              <legend>Цена, руб./час</legend>
+              <label class="filters__option" for="price-from">От</label>
+              <input class="filters__input" id="price-from" name="price-from" type="number" min="0" step="100" placeholder="1000">
+              <label class="filters__option" for="price-to">До</label>
+              <input class="filters__input" id="price-to" name="price-to" type="number" min="0" step="100" placeholder="3800">
             </fieldset>
-            <p class="filters__note">Фильтры пока не изменяют список товаров.</p>
+            <fieldset class="filters__group">
+              <legend>Оснащение</legend>
+              <label class="filters__option"><input type="checkbox" name="features" value="ciclorama"> Циклорама</label>
+              <label class="filters__option"><input type="checkbox" name="features" value="blackout-100"> Полный блэкаут</label>
+              <label class="filters__option"><input type="checkbox" name="features" value="windows"> Большие окна</label>
+            </fieldset>
+            <p class="filters__note">Фильтры пока не изменяют список залов.</p>
             <button class="button" type="submit">Применить</button>
           </form>
         </aside>
 
-        <section class="section catalog-products" aria-label="Список товаров">
-          <h2 class="visually-hidden">Товары</h2>
+        <section class="section catalog-products" aria-label="Список залов">
+          <h2 class="visually-hidden">Залы</h2>
           <div class="product-grid">
-<article class="product-card product-card--hit product-card--featured">
-<span class="product-card__badge product-card__badge--hit">Хит</span>
-<p class="product-card__category"><a href="category.html">Трикотаж</a></p>
-<img class="product-card__image" src="images/kardigan.jpg" alt="Кардиган на пуговицах, вид спереди" width="500" height="667" loading="lazy">
-<h3 class="product-card__title">Кардиган на пуговицах</h3>
-<p class="product-card__description">Вязаный кардиган с пуговицами и карманами.</p>
-<p class="product-card__price">Цена: 2800 руб.</p>
-<div class="product-card__actions">
-<a class="product-card__link" href="product.html">Подробнее</a>
-<a class="button button--secondary product-card__button" href="order.html">Заказать</a>
-</div>
-</article>
 
-<article class="product-card product-card--new">
-<span class="product-card__badge product-card__badge--new">Новинка</span>
-<p class="product-card__category"><a href="category.html">Трикотаж</a></p>
-<img class="product-card__image" src="images/kardigan-molochny.jpg" alt="Молочный кардиган" width="500" height="667" loading="lazy">
-<h3 class="product-card__title">Кардиган молочный</h3>
-<p class="product-card__description">Светлый кардиган свободного кроя.</p>
-<p class="product-card__price">Цена: 2600 руб.</p>
-<div class="product-card__actions">
-<a class="product-card__link" href="product.html">Подробнее</a>
-<a class="button button--secondary product-card__button" href="order.html">Заказать</a>
-</div>
-</article>
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Бауманская</a></p>
+              <img class="product-card__image" src="images/zal-atom.jpg" alt="Зал Атом: тёмный зал с полным блэкаутом" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Атом</h3>
+              <p class="product-card__description">37 м², блэкаут 100%. Тёмный зал для контент-съёмки.</p>
+              <p class="product-card__price">от 2200 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
 
-<article class="product-card">
-<p class="product-card__category"><a href="category.html">Трикотаж</a></p>
-<img class="product-card__image" src="images/sviter-oversize.jpg" alt="Свитер oversize" width="500" height="667" loading="lazy">
-<h3 class="product-card__title">Свитер oversize</h3>
-<p class="product-card__description">Объёмный свитер на каждый день.</p>
-<p class="product-card__price">Цена: 2400 руб.</p>
-<div class="product-card__actions">
-<a class="product-card__link" href="product.html">Подробнее</a>
-<a class="button button--secondary product-card__button" href="order.html">Заказать</a>
-</div>
-</article>
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Бауманская</a></p>
+              <img class="product-card__image" src="images/zal-beton.jpg" alt="Зал Бетон: зал с бетонной стеной" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Бетон</h3>
+              <p class="product-card__description">37 м², блэкаут 100%. Бетонная стена, минимализм.</p>
+              <p class="product-card__price">от 2200 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
 
-<article class="product-card product-card--discount">
-<span class="product-card__badge product-card__badge--discount">Скидка</span>
-<p class="product-card__category"><a href="category.html">Трикотаж</a></p>
-<img class="product-card__image" src="images/sviter-mia.jpg" alt="Свитер Mia" width="500" height="667" loading="lazy">
-<h3 class="product-card__title">Свитер Mia</h3>
-<p class="product-card__description">Мягкий свитер приглушённого серого оттенка.</p>
-<p class="product-card__price">2200 руб. <span class="product-card__old-price">2700 руб.</span></p>
-<div class="product-card__actions">
-<a class="product-card__link" href="product.html">Подробнее</a>
-<a class="button button--secondary product-card__button" href="order.html">Заказать</a>
-</div>
-</article>
+            <article class="product-card product-card--out-of-stock">
+              <p class="product-card__category"><a href="category.html">Бауманская</a></p>
+              <img class="product-card__image" src="images/zal-licey.jpg" alt="Зал Лицей: зал с циклорамой" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Лицей</h3>
+              <p class="product-card__description">60 м², циклорама, блэкаут 60%. Временно закрыт на обновление декораций.</p>
+              <p class="product-card__price">от 2500 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <span class="button button--disabled product-card__button" aria-disabled="true">Временно закрыт</span>
+              </div>
+            </article>
 
-<article class="product-card">
-<p class="product-card__category">Рубашки</p>
-<img class="product-card__image" src="images/rubashka.jpg" alt="Рубашка молочного цвета" width="500" height="667" loading="lazy">
-<h3 class="product-card__title">Рубашка «Молоко»</h3>
-<p class="product-card__description">Лёгкая рубашка со спущенным плечом.</p>
-<p class="product-card__price">Цена: 2900 руб.</p>
-<div class="product-card__actions">
-<a class="product-card__link" href="product.html">Подробнее</a>
-<a class="button button--secondary product-card__button" href="order.html">Заказать</a>
-</div>
-</article>
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Бауманская</a></p>
+              <img class="product-card__image" src="images/zal-venera.jpg" alt="Зал Венера: светлый интерьерный зал" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Венера</h3>
+              <p class="product-card__description">37 м², блэкаут 60%. Нежный интерьерный зал.</p>
+              <p class="product-card__price">от 2000 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
 
-<article class="product-card">
-<p class="product-card__category">Юбки и шорты</p>
-<img class="product-card__image" src="images/yubka-chern.jpg" alt="Чёрная юбка-шорты" width="500" height="667" loading="lazy">
-<h3 class="product-card__title">Юбка-шорты чёрные</h3>
-<p class="product-card__description">Юбка-шорты с рюшами и кружевом.</p>
-<p class="product-card__price">Цена: 2100 руб.</p>
-<div class="product-card__actions">
-<a class="product-card__link" href="product.html">Подробнее</a>
-<a class="button button--secondary product-card__button" href="order.html">Заказать</a>
-</div>
-</article>
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Бауманская</a></p>
+              <img class="product-card__image" src="images/zal-albinos.jpg" alt="Зал Альбинос: белый зал с циклорамой" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Альбинос</h3>
+              <p class="product-card__description">60 м², циклорама, блэкаут 60%. Белый зал для каталогов.</p>
+              <p class="product-card__price">от 2200 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
 
-<article class="product-card product-card--out-of-stock">
-<p class="product-card__category">Юбки и шорты</p>
-<img class="product-card__image" src="images/yubka-dzhins.jpg" alt="Синяя юбка-шорты из денима" width="500" height="667" loading="lazy">
-<h3 class="product-card__title">Юбка-шорты деним</h3>
-<p class="product-card__description">Деним со стрелками и поясом.</p>
-<p class="product-card__price">Цена: 2300 руб.</p>
-<div class="product-card__actions">
-<a class="product-card__link" href="product.html">Подробнее</a>
-<span class="button button--disabled product-card__button" aria-disabled="true">Нет в наличии</span>
-</div>
-</article>
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Дмитровская</a></p>
+              <img class="product-card__image" src="images/zal-urban.jpg" alt="Зал Урбан: зал с бетонной стеной в нейтральных тонах" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Урбан</h3>
+              <p class="product-card__description">58 м², блэкаут 100%. Нейтральные оттенки, бетонная стена.</p>
+              <p class="product-card__price">от 2200 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Дмитровская</a></p>
+              <img class="product-card__image" src="images/zal-forma.jpg" alt="Зал Форма: зал с геометричными формами" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Форма</h3>
+              <p class="product-card__description">58 м², блэкаут 100%. Геометрия и чистые линии.</p>
+              <p class="product-card__price">от 2000 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Дмитровская</a></p>
+              <img class="product-card__image" src="images/zal-mini.jpg" alt="Зал Мини: компактный недорогой зал" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Мини</h3>
+              <p class="product-card__description">20 м², блэкаут 100%. Компактный зал по низкой цене.</p>
+              <p class="product-card__price">от 1000 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Дмитровская</a></p>
+              <img class="product-card__image" src="images/zal-duna.jpg" alt="Зал Дюна: зал в песочных тонах" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Дюна</h3>
+              <p class="product-card__description">58 м². Песочные оттенки и мягкий свет.</p>
+              <p class="product-card__price">от 2200 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Дмитровская</a></p>
+              <img class="product-card__image" src="images/zal-nachalo.jpg" alt="Зал Начало: зал с угловой циклорамой" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Начало</h3>
+              <p class="product-card__description">30 м², блэкаут 100%. Угловая циклорама недорого.</p>
+              <p class="product-card__price">от 1700 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
+
+            <article class="product-card product-card--new">
+              <span class="product-card__badge product-card__badge--new">Новинка</span>
+              <p class="product-card__category"><a href="category.html">Дмитровская</a></p>
+              <img class="product-card__image" src="images/zal-muza.jpg" alt="Зал Муза: новый зал с циклорамой" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Муза</h3>
+              <p class="product-card__description">70 м², циклорама, блэкаут 100%. Открыт в 2026 году.</p>
+              <p class="product-card__price">от 2400 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Преображенская пл.</a></p>
+              <img class="product-card__image" src="images/zal-parizh.jpg" alt="Зал Париж: интерьерный зал в парижском стиле" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Париж</h3>
+              <p class="product-card__description">86 м², блэкаут 60%. Интерьер в парижском стиле.</p>
+              <p class="product-card__price">от 2200 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
+
+            <article class="product-card product-card--discount">
+              <span class="product-card__badge product-card__badge--discount">Скидка</span>
+              <p class="product-card__category"><a href="category.html">Преображенская пл.</a></p>
+              <img class="product-card__image" src="images/zal-baldezh.jpg" alt="Зал Балдеж: самый большой зал с циклорамой" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Балдеж</h3>
+              <p class="product-card__description">100 м², циклорама, блэкаут 60%. Самый большой зал.</p>
+              <p class="product-card__price">от 2800 руб./час <span class="product-card__old-price">3200 руб./час</span></p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
+
+            <article class="product-card product-card--hit product-card--featured">
+              <span class="product-card__badge product-card__badge--hit">Хит</span>
+              <p class="product-card__category"><a href="category.html">Преображенская пл.</a></p>
+              <img class="product-card__image" src="images/zal-vozduh.jpg" alt="Зал Воздух: светлый зал с антресолью" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Воздух</h3>
+              <p class="product-card__description">86 м², антресоль и лестница, большие окна. Самый популярный.</p>
+              <p class="product-card__price">от 3800 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <p class="product-card__category"><a href="category.html">Преображенская пл.</a></p>
+              <img class="product-card__image" src="images/zal-mono.jpg" alt="Зал Моно: зал в монохромной гамме" width="900" height="600" loading="lazy">
+              <h3 class="product-card__title">Моно</h3>
+              <p class="product-card__description">60 м². Монохромная гамма для лукбуков.</p>
+              <p class="product-card__price">от 2200 руб./час</p>
+              <div class="product-card__actions">
+                <a class="product-card__link" href="product.html">Подробнее</a>
+                <a class="button button--secondary product-card__button" href="order.html">Забронировать</a>
+              </div>
+            </article>
+
           </div>
         </section>
       </div>
@@ -155,7 +260,7 @@
       <p class="site-footer__copyright">&copy; 2026 Учебный проект. Все права защищены.</p>
       <ul class="site-footer__links">
         <li><a href="index.html#advantages">Преимущества</a></li>
-        <li><a href="index.html#popular">Популярные товары</a></li>
+        <li><a href="index.html#popular">Популярные залы</a></li>
         <li><a href="contacts.html">Контакты</a></li>
       </ul>
       <p>Дисциплина: Фронтенд и бэкенд разработка</p>

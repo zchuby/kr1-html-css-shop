@@ -1,6 +1,7 @@
 /*
   Стили учебного проекта kr1-html-css-shop.
   Практическое занятие №4: CSS-архитектура, переменные и состояния.
+  Проект: многостраничный сайт фотостудии «Ракурс».
 */
 
 /* Плавная прокрутка к якорям (практическое занятие №5) */
@@ -16,11 +17,11 @@ html {
   --color-bg: #ffffff;
   --color-text: #222222;
   --color-muted: #666666;
-  --color-primary: #0057b8;
-  --color-primary-dark: #003f86;
+  --color-primary: #1c1c1c;
+  --color-primary-dark: #000000;
   --color-border: #dddddd;
   --color-surface: #f7f7f7;
-  --color-surface-accent: #eef5ff;
+  --color-surface-accent: #f2f2f2;
   --color-danger: #b00020;
   --color-success: #168a2f;
   --color-success-bg: #eefaf0;

@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Форма заявки на заказ: имя, телефон, e-mail, комментарий и согласие на обработку данных.">
-  <title>Оформление заявки за минуту — Гардероб</title>
+  <meta name="description" content="Форма бронирования зала: имя, телефон, e-mail, зал, дата и время съёмки, количество часов и согласие на обработку данных.">
+  <title>Бронирование зала — Ракурс</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">ShopProject</a>
+      <a class="site-header__logo" href="index.html">Ракурс</a>
 
       <nav class="site-nav" aria-label="Основная навигация">
         <ul class="site-nav__list">
           <li><a class="site-nav__link" href="index.html">Главная</a></li>
-          <li><a class="site-nav__link" href="catalog.html">Каталог</a></li>
-          <li><a class="site-nav__link site-nav__link--active" href="order.html">Заявка</a></li>
+          <li><a class="site-nav__link" href="catalog.html">Наши залы</a></li>
+          <li><a class="site-nav__link site-nav__link--active" href="order.html">Бронирование</a></li>
           <li><a class="site-nav__link" href="contacts.html">Контакты</a></li>
         </ul>
       </nav>
@@ -28,12 +28,13 @@
     <div class="page-main">
       <ul class="breadcrumbs" aria-label="Хлебные крошки">
         <li><a href="index.html">Главная</a></li>
-        <li class="breadcrumbs__item--current">Заявка</li>
+        <li class="breadcrumbs__item--current">Бронирование</li>
       </ul>
 
-      <h1 class="page-title">Оформление заявки</h1>
+      <h1 class="page-title">Бронирование зала</h1>
       <p class="page-lead">
-        Заполните форму — менеджер свяжется с вами и уточнит детали заказа.
+        Заполните форму — администратор подтвердит бронь в течение 15 минут
+        в рабочее время.
       </p>
 
       <form class="order-form" id="order-form" action="#" method="post" novalidate>
@@ -65,33 +66,61 @@
         </div>
 
         <div class="order-form__field">
-          <label class="order-form__label" for="order-date">Дата связи</label>
-          <input class="order-form__input" id="order-date" name="date" type="date"
-                 aria-describedby="order-date-hint">
-          <small id="order-date-hint">Оставьте пустым — перезвоним в ближайшее рабочее время.</small>
+          <label class="order-form__label" for="order-product">Зал <span aria-hidden="true">*</span></label>
+          <select class="order-form__input" id="order-product" name="product"
+                  aria-required="true" aria-describedby="order-product-error" required>
+            <option value="">Выберите зал</option>
+            <option value="consultation">Нужна консультация</option>
+            <optgroup label="Бауманская">
+              <option value="atom">Атом — от 2200 руб./час</option>
+              <option value="beton">Бетон — от 2200 руб./час</option>
+              <option value="venera">Венера — от 2000 руб./час</option>
+              <option value="albinos">Альбинос — от 2200 руб./час</option>
+            </optgroup>
+            <optgroup label="Дмитровская">
+              <option value="urban">Урбан — от 2200 руб./час</option>
+              <option value="forma">Форма — от 2000 руб./час</option>
+              <option value="mini">Мини — от 1000 руб./час</option>
+              <option value="duna">Дюна — от 2200 руб./час</option>
+              <option value="nachalo">Начало — от 1700 руб./час</option>
+              <option value="muza">Муза — от 2400 руб./час</option>
+            </optgroup>
+            <optgroup label="Преображенская площадь">
+              <option value="parizh">Париж — от 2200 руб./час</option>
+              <option value="baldezh">Балдеж — от 2800 руб./час</option>
+              <option value="vozduh">Воздух — от 3800 руб./час</option>
+              <option value="mono">Моно — от 2200 руб./час</option>
+            </optgroup>
+          </select>
+          <small class="order-form__error" id="order-product-error" hidden>Выберите зал или пункт «Нужна консультация».</small>
         </div>
 
         <div class="order-form__field">
-          <label class="order-form__label" for="order-product">Товар <span aria-hidden="true">*</span></label>
-          <select class="order-form__input" id="order-product" name="product"
-                  aria-required="true" aria-describedby="order-product-error" required>
-            <option value="">Выберите товар</option>
-            <option value="consultation">Нужна консультация</option>
-            <option value="kardigan">Кардиган на пуговицах — 2800 руб.</option>
-            <option value="kardigan-mol">Кардиган молочный — 2600 руб.</option>
-            <option value="sviter-oversize">Свитер oversize — 2400 руб.</option>
-            <option value="sviter-mia">Свитер Mia — 2200 руб.</option>
-            <option value="rubashka">Рубашка «Молоко» — 2900 руб.</option>
-            <option value="yubka-chern">Юбка-шорты чёрные — 2100 руб.</option>
-            <option value="yubka-dzhins">Юбка-шорты деним — 2300 руб.</option>
+          <label class="order-form__label" for="order-date">Дата съёмки <span aria-hidden="true">*</span></label>
+          <input class="order-form__input" id="order-date" name="date" type="date"
+                 aria-required="true" aria-describedby="order-date-error" required>
+          <small class="order-form__error" id="order-date-error" hidden>Выберите дату съёмки.</small>
+        </div>
+
+        <div class="order-form__field">
+          <label class="order-form__label" for="order-time">Время начала <span aria-hidden="true">*</span></label>
+          <select class="order-form__input" id="order-time" name="time"
+                  aria-required="true" aria-describedby="order-time-error" required>
+            <option value="">Выберите время</option>
+            <option value="10:00">10:00</option>
+            <option value="12:00">12:00</option>
+            <option value="14:00">14:00</option>
+            <option value="16:00">16:00</option>
+            <option value="18:00">18:00</option>
+            <option value="20:00">20:00</option>
           </select>
-          <small class="order-form__error" id="order-product-error" hidden>Выберите товар или пункт «Нужна консультация».</small>
+          <small class="order-form__error" id="order-time-error" hidden>Выберите время начала съёмки.</small>
         </div>
 
         <div class="order-form__field">
           <label class="order-form__label" for="order-comment">Комментарий</label>
           <textarea class="order-form__input" id="order-comment" name="comment" rows="4"
-                    placeholder="Укажите дополнительную информацию: размер, цвет, пожелания"></textarea>
+                    placeholder="Количество часов, реквизит, пожелания к свету"></textarea>
         </div>
 
         <div class="order-form__field order-form__field--checkbox">
@@ -110,7 +139,7 @@
       </form>
 
       <p class="success-message" id="success-message" role="status" aria-live="polite" hidden>
-        Форма успешно отправлена!
+        Заявка отправлена! Администратор подтвердит бронь по телефону.
       </p>
     </div>
   </main>
@@ -120,7 +149,7 @@
       <p class="site-footer__copyright">&copy; 2026 Учебный проект. Все права защищены.</p>
       <ul class="site-footer__links">
         <li><a href="index.html#advantages">Преимущества</a></li>
-        <li><a href="index.html#popular">Популярные товары</a></li>
+        <li><a href="index.html#popular">Популярные залы</a></li>
         <li><a href="contacts.html">Контакты</a></li>
       </ul>
       <p>Дисциплина: Фронтенд и бэкенд разработка</p>
